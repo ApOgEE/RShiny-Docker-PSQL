@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  shiny-app:
+    build:
+      context: ./build
+      dockerfile: Dockerfile
+    ports:
+      - 8083:8083
+    volumes:
+      - ./shiny-app:/usr/src/app
+    networks:
+      - rshinynet
+
+  psqldb:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=pgadmin
+      - POSTGRES_PASSWORD=psqlp4ss123
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+      - ./pg-initdb:/docker-entrypoint-initdb.d/
+    networks:
+      - rshinynet
+
+networks:
+  rshinynet:
