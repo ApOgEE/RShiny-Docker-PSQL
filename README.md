@@ -7,6 +7,12 @@ dan connection kepada postgres database.
 
 # cara guna
 ```
+docker compose build
 docker compose up -d
 ```
-kemudian buka di browser: [http://localhost:8083](http://localhost:8083)
+kemudian buka di browser: http://localhost:8083
+
+## Rujukan Berguna
+
+- https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/
+- https://mastering-shiny.org/
