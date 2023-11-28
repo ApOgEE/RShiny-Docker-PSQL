@@ -11,6 +11,8 @@ services:
       - ./shiny-app:/usr/src/app
     networks:
       - rshinynet
+    depends_on:
+      - psqldb
 
   psqldb:
     image: postgres:latest
